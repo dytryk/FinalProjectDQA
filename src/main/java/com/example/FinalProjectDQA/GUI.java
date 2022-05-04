@@ -25,7 +25,7 @@ public class GUI extends Application
 
     private boolean isWon = false;
     private static ArrayList<Terrain> rows = new ArrayList<>();
-    private static Queue<String> rowStr = new LinkedList<>();
+    private static ArrayList<String> rowStr = new ArrayList<>();
 
 //    private Queue<String> board ()
 //    {
@@ -111,7 +111,7 @@ public class GUI extends Application
         primaryStage.show();
     }
     // holds generated lines of terrain for the board to call
-    private ArrayList<ArrayList<Unit>> terrain = new ArrayList<>();
+    private LinkedList<ArrayList<Unit>> terrain = new LinkedList<>();
 
     public void generateTerrain(){
 //        Terrain t = new Terrain();
@@ -127,20 +127,22 @@ public class GUI extends Application
                 Terrain t = new Terrain();
                 temp = t.generateTerr();
                 terrain.add(temp);
-                rowStr.offer(temp.toString());
+                rowStr.add(temp.toString());
             }
         }
     }
-    public ArrayList<Unit> getNextRow(){
-        ArrayList<Unit> nextRow = terrain.get(terrain.size() - 10);
-        terrain.remove(terrain.size());
-        generateTerrain();
-        return nextRow;
-    }
+//    public ArrayList<Unit> getNextRow(){
+//        ArrayList<Unit> nextRow = terrain.get(terrain.size() - 10);
+//        terrain.remove(terrain.size());
+//        generateTerrain();
+//        return nextRow;
+//    }
 
 
     // define simple move functions to change the value of x and y (frog location)
-    public void moveUp() { if (y > 0 && (getFrame().charAt(x + 17*(y - 1) - 1)) != 'X') { y -= 1; } }
+    private Obstacle o = new Obstacle();
+//    public void moveUp() { if (y > 0 && (terrain.get(y+1).equals(o) && (terrain.get(x).equals(o)))) { y -= 1; } }
+    public void moveUp() { if (y > 0 && (getFrame().charAt(2) == 'X')) { y -= 1; } }
     public void moveDown() { if (y < BOARD_HEIGHT-1) { y += 1; } }
     public void moveLeft() { if (x > 0) { x -= 1; } }
     public void moveRight() { if (x < BOARD_WIDTH-1) { x += 1; } }
@@ -148,25 +150,33 @@ public class GUI extends Application
     static Timer timer = new Timer();
     static long tick = 0;
 
-    public static void Timer (int seconds)
-    {
-        TimerTask task;
-        task = new TimerTask()
-        {
-            private final int maxSecs = seconds/3*100;
-
-            @Override
-            public void run() {
-                if (tick < maxSecs) {
-                    System.out.println(tick + 1);
-                    tick++;
-                } else {
-                    timer.cancel();
-                }
-            }
-        };
-        timer.schedule(task, 0, 10);
+    public char[] getNextRow(){
+        ArrayList<Unit> nextRow = terrain.remove();
+        generateTerrain();
+        char[] row = new char[nextRow.size()];
+        for (int i = 0; i < nextRow.size(); i++) { row[i] = nextRow.get(i).toChar(); }
+        return row;
     }
+
+//    public static void Timer (int seconds)
+//    {
+//        TimerTask task;
+//        task = new TimerTask()
+//        {
+//            private final int maxSecs = seconds/3*100;
+//
+//            @Override
+//            public void run() {
+//                if (tick < maxSecs) {
+//                    System.out.println(tick + 1);
+//                    tick++;
+//                } else {
+//                    timer.cancel();
+//                }
+//            }
+//        };
+//        timer.schedule(task, 0, 10);
+//    }
 
     // draw a board using BOARD_WIDTH, BOARD_HEIGHT, x, and y
 //    public String getFrame()
@@ -337,7 +347,7 @@ public class GUI extends Application
             // add a right border
             frame.append('|');
         }
-        // add a bottom border
+        // add a bottom borderasdadasd
         frame.append('\n');
         frame.append("-".repeat(BOARD_WIDTH));
         return frame.toString();
