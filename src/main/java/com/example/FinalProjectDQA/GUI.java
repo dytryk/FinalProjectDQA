@@ -23,7 +23,9 @@ public class GUI extends Application
     private int x = 7;
     private int y = 8;
 
-    private boolean isWon = false;
+    private boolean isWon(){
+        return y == 0 || y == 1;
+    }
     private static ArrayList<Terrain> rows = new ArrayList<>();
     private static ArrayList<String> rowStr = new ArrayList<>();
 
@@ -118,14 +120,12 @@ public class GUI extends Application
         int numRows = 10;
         for (int i = numRows; i > 0; i--){
             if (i < 3){
-                ArrayList<Unit> tEmpty = new ArrayList<>();
                 Terrain t = new Terrain();
-                tEmpty = t.emptyRow();
+                ArrayList<Unit> tEmpty = t.emptyRow();
                 terrain.add(tEmpty);
             } else {
-                ArrayList<Unit> temp = new ArrayList<>();
                 Terrain t = new Terrain();
-                temp = t.generateTerr();
+                ArrayList<Unit> temp = t.generateTerr();
                 terrain.add(temp);
                 rowStr.add(temp.toString());
             }
