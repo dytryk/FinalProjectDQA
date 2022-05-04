@@ -31,9 +31,6 @@ public class Space extends Unit{
 */
     @Override
     public Unit convert(int num) {
-        if (unitNum == num) {
-            return new Space();
-        }
-        return null;
+        return new Space();
     }
 }
