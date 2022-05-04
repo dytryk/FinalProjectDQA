@@ -23,12 +23,12 @@ public class GUI extends Application
     private int x = 7;
     private int y = 8;
 
-    private boolean isWon(){
-        return y == 0 || y == 1;
-    }
     private static ArrayList<Terrain> rows = new ArrayList<>();
     private static ArrayList<String> rowStr = new ArrayList<>();
 
+    private boolean isWon(){
+        return y == 0 || y == 1;
+    }
 //    private Queue<String> board ()
 //    {
 //        Terrain tE1 = new Terrain();
@@ -116,7 +116,6 @@ public class GUI extends Application
     private LinkedList<ArrayList<Unit>> terrain = new LinkedList<>();
 
     public void generateTerrain(){
-//        Terrain t = new Terrain();
         int numRows = 10;
         for (int i = numRows; i > 0; i--){
             if (i < 3){
@@ -348,7 +347,7 @@ public class GUI extends Application
             // add a right border
             frame.append('|');
         }
-        // add a bottom borderasdadasd
+        // add a bottom border
         frame.append('\n');
         frame.append("-".repeat(BOARD_WIDTH));
         return frame.toString();
