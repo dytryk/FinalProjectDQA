@@ -20,7 +20,7 @@ public class GUI extends Application
     public static final int BOARD_WIDTH = 15;
     public static final int BOARD_HEIGHT = 10;
     // set the starting position of the "frog"
-    private int x = 8;
+    private int x = 7;
     private int y = 8;
 
     /**
@@ -43,7 +43,7 @@ public class GUI extends Application
         // https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Scene.html
         // define the size of this scene
         double WINDOW_WIDTH = 1920;
-        double WINDOW_HEIGHT = 1080;
+        double WINDOW_HEIGHT = 1010;
         Scene exampleScene = new Scene(layout, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         // make this scene the initial (and for now only) scene in your application
@@ -155,6 +155,7 @@ public class GUI extends Application
     private Scanner userIn = new Scanner(System.in);
     private boolean goodChar;
     private Exception badChar;
+
     /**
      * checks that character is valid for move
      * @param c the character submitted by the user
