@@ -17,8 +17,8 @@ public class GUI extends Application
     public static final int BOARD_WIDTH = 15;
     public static final int BOARD_HEIGHT = 10;
     // set the starting position of the "frog"
-    private int x = BOARD_WIDTH/2;
-    private int y = BOARD_HEIGHT/2;
+    private int x = 8;
+    private int y = 8;
 
     /**
      * Set up the starting scene of your application given the primaryStage (basically the window)

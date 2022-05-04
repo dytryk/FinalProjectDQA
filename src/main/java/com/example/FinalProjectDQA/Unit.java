@@ -47,7 +47,6 @@ public abstract class Unit {
     /**
      * converts a number to the corresponding character to display either frog, space, or obstacle
      *
-     * @param num number to be converted
      * @return char corresponding to user input for UI
      */
     public abstract Unit convert();
