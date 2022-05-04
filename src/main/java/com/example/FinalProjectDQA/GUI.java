@@ -154,11 +154,6 @@ public class GUI extends Application
      * returns the character move from user (Scanner)
      * @return user move
      */
-    public char getMove(){
-        // handles : input mismatch
-        //TODO: finish
-        return ' ';
-    }
 
     /** end stuff moved from "move"**/
 
