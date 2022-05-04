@@ -9,7 +9,7 @@ public abstract class Unit {
     private int xCoord;
     private int yCoord;
     private char unitVal;
-    private int unitNum = 0;
+    private int unitNum;
 
     /**
      * sets the location of a specific "unit" in the array.
@@ -42,6 +42,7 @@ public abstract class Unit {
     public void setNum(int num) {
         unitNum = num;
     }
+    public int getNum(){return unitNum;}
 
     /**
      * converts a number to the corresponding character to display either frog, space, or obstacle

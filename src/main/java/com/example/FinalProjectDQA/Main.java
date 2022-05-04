@@ -14,9 +14,10 @@ public class Main
     {
         //TODO: Do stuff
 
-        Terrain t = new Terrain();
         for (int i = 0; i < 100; i++) {
+            Terrain t = new Terrain();
             t.generateTerr();
+            System.out.println(t.toString());
         }
     }
 }
