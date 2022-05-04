@@ -23,12 +23,12 @@ public class Terrain {
      * @return arraylist of Units of type int
      */
     public ArrayList<Unit> generateTerr() {
-        Random r = new Random();
+        Random rand = new Random();
         int count = 0;
         Unit s = new Space();
         Unit o = new Obstacle();
         while (row.size() < 15) {
-            int temp = r.nextInt(3);
+            int temp = rand.nextInt(3);
             if (temp == 2 && count < 6) {
                 row.add(o.convert());
                 count++;
