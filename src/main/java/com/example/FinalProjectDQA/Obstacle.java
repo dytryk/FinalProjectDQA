@@ -13,11 +13,7 @@ public class Obstacle extends Unit{
 //    private char unitVal;
 
     public Unit convert (int num) {
-        if (num == unitNum)
-        {
-            return new Obstacle();
-        }
-        return null;
+        return new Obstacle();
     }
 ///**
 // * sets coordinates of frog from system input

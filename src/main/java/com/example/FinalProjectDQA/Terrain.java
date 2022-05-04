@@ -25,24 +25,23 @@ public class Terrain {
     public ArrayList<Unit> generateTerr() {
         Random r = new Random();
         int count = 0;
-        Unit u = new Space(); // edit this
+        Unit s = new Space();
+        Unit o = new Obstacle();
         while (row.size() < 15) {
-            int temp = r.nextInt(2);
-            if (temp == 1 && count < 8) {
-                row.add(u.convert(temp));
+            int temp = r.nextInt(3);
+            if (temp == 2 && count < 6) {
+                row.add(o.convert(temp));
                 count++;
-            } else if (temp == 0 && count < 9) {
-                row.add(u.convert(temp));
+            } else if (temp < 2 && count < 7) {
+                row.add(s.convert(temp));
             }
             if (row.size() == 15){
                 break;
             }
-            if (count == 7){
-                row.add(u.convert(temp));
+            if (count == 6){
+                row.add(s.convert(temp));
             }
         }
-//        System.out.println(row);
-        toString();
         return row;
     }
 
@@ -66,13 +65,13 @@ public class Terrain {
     @Override
     public String toString() {
         String rowStr = "";
-        Obstacle o = new Obstacle();
-        Space s = new Space();
+        Unit o = new Obstacle();
+        Unit s = new Space();
         for (int i = 0; i < row.size(); i++){
-            if(row.get(i).getClass().equals(o.getClass())) {
+            if((row.get(i).getClass()).equals(o.getClass())) {
                 rowStr = rowStr + "X";
-            } else if (row.get(i).getClass().equals(s.getClass())){
-                rowStr = rowStr + " ";
+            } else if ((row.get(i).getClass()).equals(s.getClass())){
+                rowStr = rowStr + "_";
             } else {
                 rowStr = rowStr + "O";
             }

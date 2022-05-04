@@ -7,7 +7,7 @@ public class Board {
     /**
      * This class holds the board to display
      */
-private LinkedList<ArrayList<Unit>> board;
+    private LinkedList<ArrayList<Unit>> board;
     private final int NUM_ROWS = 12;
     private Frog timmy;
     private int score;
