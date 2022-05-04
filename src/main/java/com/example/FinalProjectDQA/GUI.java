@@ -139,10 +139,13 @@ public class GUI extends Application
 //    }
 
 
+//    17*(y) + 7 + x off by 1
+    //18*(y) + 5 + x off by 6/7
+
     // define simple move functions to change the value of x and y (frog location)
     private Obstacle o = new Obstacle();
 //    public void moveUp() { if (y > 0 && (terrain.get(y+1).equals(o) && (terrain.get(x).equals(o)))) { y -= 1; } }
-    public void moveUp() { if (y > 0 && (getFrame().charAt(2) == 'X')) { y -= 1; } }
+    public void moveUp() { if (y > 0 && (getFrame().charAt(18*(y) - 1 + x) != 'X')) { y -= 1; } }
     public void moveDown() { if (y < BOARD_HEIGHT-1) { y += 1; } }
     public void moveLeft() { if (x > 0) { x -= 1; } }
     public void moveRight() { if (x < BOARD_WIDTH-1) { x += 1; } }
