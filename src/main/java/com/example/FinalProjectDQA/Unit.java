@@ -54,17 +54,24 @@ public abstract class Unit {
     /**
      * reverts a char value back to the corresponding int
      *
-     * @param val char to be converted to an int
-     * @return int corresponding to user input
+     * @param u Unit to be converted to a char
+     * @return char corresponding to unit type
      */
-    public int toChar(char val) {
-        int revertion = 0;
+    public char toChar(Unit u) {
+        if (u.getClass().equals(Obstacle.class)){
+            return 'X';
+        }
+        if (u.getClass().equals(Frog.class)){
+            return 'O';
+        }
+            return ' ';
+        /*int revertion = 0;
         if (val == 'X') {
             revertion = 1;
         }
         if (val == 'O') {
             revertion = 2;
         }
-        return revertion;
+        return revertion;*/
     }
 }
