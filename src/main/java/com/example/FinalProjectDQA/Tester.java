@@ -1,6 +1,6 @@
 package com.example.FinalProjectDQA;
 
-public class MoveTester {
+public class Tester {
     public static void main(String[] args) {
         Unit u = new Obstacle();
     }
