@@ -143,13 +143,10 @@ public class GUI extends Application
     //18*(y) + 5 + x off by 6/7
 
     // define simple move functions to change the value of x and y (frog location)
-    private Obstacle o = new Obstacle();
-//    public void moveUp() { if (y > 0 && (getFrame().charAt(18*(y) - 1 + x) != 'X')) { y -= 1; } }
-    public void moveUp() { if (y > 0) { y -= 1; } }
-//    public void moveDown() { if (y < BOARD_HEIGHT-1 && (getFrame().charAt(18*(y + 2) - 1 + x) != 'X')) { y += 1; } }
-    public void moveDown() { if (y < BOARD_HEIGHT-1 && ((getFrame().charAt(18*(y + 2) - 1 + x) != 'X'))) { y += 1; } }
-    public void moveLeft() { if (x > 0) { x -= 1; } }
-    public void moveRight() { if (x < BOARD_WIDTH-1) { x += 1; } }
+    public void moveUp() { if (y > 0 && (getFrame().charAt(18*(y) - 1 + x) != 'X')) { y -= 1; } }
+    public void moveDown() { if (y < BOARD_HEIGHT-1 && (getFrame().charAt(18*(y + 2) - 1 + x) != 'X')) { y += 1; } }
+    public void moveLeft() { if (x > 0 && ((getFrame().charAt(18*(y + 1) - 2 + x) != 'X'))) { x -= 1; } }
+    public void moveRight() { if (x < BOARD_WIDTH-1 && ((getFrame().charAt(18*(y + 1) + x) != 'X'))) { x += 1; } }
 
     static Timer timer = new Timer();
     static long tick = 0;
