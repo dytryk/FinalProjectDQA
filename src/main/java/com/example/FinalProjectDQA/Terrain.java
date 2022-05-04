@@ -41,7 +41,8 @@ public class Terrain {
                 row.add(u.convert(temp));
             }
         }
-        System.out.println(row);
+//        System.out.println(row);
+        toString();
         return row;
     }
 
@@ -65,12 +66,12 @@ public class Terrain {
     @Override
     public String toString() {
         String rowStr = "";
-        Unit o = new Obstacle();
-        Unit s = new Space();
+        Obstacle o = new Obstacle();
+        Space s = new Space();
         for (int i = 0; i < row.size(); i++){
-            if(row.get(i) == o) {
+            if(row.get(i).getClass().equals(o.getClass())) {
                 rowStr = rowStr + "X";
-            } else if (row.get(i) == s){
+            } else if (row.get(i).getClass().equals(s.getClass())){
                 rowStr = rowStr + " ";
             } else {
                 rowStr = rowStr + "O";

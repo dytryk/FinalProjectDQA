@@ -1,5 +1,7 @@
 package com.example.FinalProjectDQA;
 
+import java.util.ArrayList;
+
 public class Main
 {
     /**
@@ -14,9 +16,10 @@ public class Main
     {
         //TODO: Do stuff
 
-        Terrain t = new Terrain();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 25; i++) {
+            Terrain t = new Terrain();
             t.generateTerr();
+            t.toString();
         }
     }
 }
