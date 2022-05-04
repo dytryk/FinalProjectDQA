@@ -12,7 +12,7 @@ public class Obstacle extends Unit{
 //    private int yCoord;
 //    private char unitVal;
 
-    public Unit convert (int num) {
+    public Unit convert () {
         return new Obstacle();
     }
 ///**

@@ -50,7 +50,7 @@ public abstract class Unit {
      * @param num number to be converted
      * @return char corresponding to user input for UI
      */
-    public abstract Unit convert(int num);
+    public abstract Unit convert();
 
     /**
      * reverts a char value back to the corresponding int
