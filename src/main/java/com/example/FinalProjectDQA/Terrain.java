@@ -30,16 +30,16 @@ public class Terrain {
         while (row.size() < 15) {
             int temp = r.nextInt(3);
             if (temp == 2 && count < 6) {
-                row.add(o.convert(temp));
+                row.add(o.convert());
                 count++;
             } else if (temp < 2 && count < 7) {
-                row.add(s.convert(temp));
+                row.add(s.convert());
             }
             if (row.size() == 15){
                 break;
             }
             if (count == 6){
-                row.add(s.convert(temp));
+                row.add(s.convert());
             }
         }
         return row;

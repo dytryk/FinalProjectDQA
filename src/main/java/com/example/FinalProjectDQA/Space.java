@@ -30,7 +30,7 @@ public class Space extends Unit{
     }
 */
     @Override
-    public Unit convert(int num) {
+    public Unit convert() {
         return new Space();
     }
 }
