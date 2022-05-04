@@ -9,6 +9,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.input.KeyCode;
 
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GUI extends Application
@@ -30,7 +33,7 @@ public class GUI extends Application
     public void start(Stage primaryStage)
     {
         // Add a title to the application window
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Frogger");
 
         // prepare the scene layout to use a BorderPane -- a top, bottom, left, right, center style pane layout
         // https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm
@@ -85,6 +88,21 @@ public class GUI extends Application
         // display the interface
         primaryStage.show();
     }
+    // holds generated lines of terrain for the board to call
+    private Queue<ArrayList<Unit>> terrain;
+    public void generateTerrain(){
+        Terrain t = new Terrain();
+        int numRows = 50;
+        while (terrain.size() < numRows){
+            terrain.add(t.generateTerr());
+        }
+    }
+    public ArrayList<Unit> getNextRow(){
+        ArrayList<Unit> nextRow = terrain.element();
+        terrain.remove();
+        generateTerrain();
+        return nextRow;
+    }
 
     // define simple move functions to change the value of x and y (frog location)
     public void moveUp() { if (y > 0) { y -= 1; } }
@@ -105,10 +123,21 @@ public class GUI extends Application
             frame.append('|');
             // fill in this row (possibly including a frog)
             for (int c = 0; c < BOARD_WIDTH; c++) {
+                /*ArrayList<Unit> row = new ArrayList<>();
+                row = getNextRow();*/
                 if (r == y && c == x) {
                     frame.append('O');
                 } else {
                     frame.append(' ');
+                    /*Obstacle o = new Obstacle();
+                    Space s = new Space();
+                    for (Unit u : row){
+                        if (u.getClass().equals(s.getClass())){
+                            frame.append(' ');
+                        } else if(u.getClass().equals(o.getClass())){
+                            frame.append('X');
+                        }
+                    }*/
                 }
             }
             // add a right border
