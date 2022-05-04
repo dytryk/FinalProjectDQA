@@ -52,16 +52,14 @@ public abstract class Unit {
     public abstract Unit convert();
 
     /**
-     * reverts a char value back to the corresponding int
-     *
-     * @param u Unit to be converted to a char
+     * changes a Unit value to the corresponding char
      * @return char corresponding to unit type
      */
-    public char toChar(Unit u) {
-        if (u.getClass().equals(Obstacle.class)){
+    public char toChar() {
+        if (this.getClass().equals(Obstacle.class)){
             return 'X';
         }
-        if (u.getClass().equals(Frog.class)){
+        if (this.getClass().equals(Frog.class)){
             return 'O';
         }
             return ' ';

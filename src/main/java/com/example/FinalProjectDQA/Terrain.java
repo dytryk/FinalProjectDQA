@@ -69,8 +69,8 @@ public class Terrain {
     /**
      * @return a string containing a row of obstacles and spaces
      */
-//    @Override
-    public String toString(ArrayList<Unit> row) {
+    @Override
+    public String toString() {
         String rowStr = "";
         Unit o = new Obstacle();
         Unit s = new Space();
