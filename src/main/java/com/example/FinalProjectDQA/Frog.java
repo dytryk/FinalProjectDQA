@@ -12,6 +12,6 @@ public class Frog extends Unit
     private final int unitNum = 2;
 
    public Unit convert(){
-           return new Frog();
+       return new Frog();
    }
 }
