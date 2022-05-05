@@ -10,6 +10,10 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.input.KeyCode;
 import java.util.*;
 
+/**
+ * GUI class creates the game board for Frogger, runs the gui, and takes user input to move around from WASD keys
+ * GUI also runs the toString method that converts the Units to Strings, so they can be displayed on the game board.
+ */
 public class GUI extends Application {
     // set the size of the board to be displayed
     public static final int BOARD_WIDTH = 15;
@@ -25,12 +29,9 @@ public class GUI extends Application {
     private boolean isLost = false;
 
     /**
-     * Set up the starting scene of your application given the primaryStage (basically the window)
-     * https://docs.oracle.com/javase/8/javafx/api/index.html
      *
-     * @param primaryStage the primary container for scenes
+     * @param primaryStage
      */
-
     @Override
     public void start(Stage primaryStage) {
 
@@ -38,11 +39,9 @@ public class GUI extends Application {
         primaryStage.setTitle("Frogger");
 
         // prepare the scene layout to use a BorderPane -- a top, bottom, left, right, center style pane layout
-        // https://docs.oracle.com/javafx/2/layout/builtin_layouts.htm
         BorderPane layout = new BorderPane();
 
         // Create a new scene using this layout
-        // https://docs.oracle.com/javase/8/javafx/api/javafx/scene/Scene.html
         // define the size of this scene
         double WINDOW_WIDTH = 1920;
         double WINDOW_HEIGHT = 1010;
@@ -52,7 +51,6 @@ public class GUI extends Application {
         primaryStage.setScene(exampleScene);
 
         // create a new text node to display text on the interface
-        // https://docs.oracle.com/javase/8/javafx/api/javafx/scene/text/Text.html
         Text frame = new Text(getFrame());
         Font frameFont = new Font("Courier New", 20);
         frame.setFont(frameFont);
@@ -61,8 +59,6 @@ public class GUI extends Application {
         layout.setCenter(frame);
 
         // define code to run every time a KeyPressed event is detected on this window to check for ESC to close
-        // NOTE: there even is of type javafx.scene.input.KeyEvent
-        // https://docs.oracle.com/javase/8/javafx/api/javafx/scene/input/KeyEvent.html
         exampleScene.setOnKeyPressed(event -> {
             // check if the key that was pressed is the ESC key
             if (event.getCode().equals(KeyCode.ESCAPE)) {
@@ -83,11 +79,13 @@ public class GUI extends Application {
                 frame.setText(getFrame());
             }
         });
-
         // display the interface
         primaryStage.show();
     }
 
+    /**
+     *
+     */
     // holds generated lines of terrain for the board to call
     public void generateTerrain() {
         int numRows = 10;
@@ -105,6 +103,9 @@ public class GUI extends Application {
         }
     }
 
+    /**
+     *
+     */
     // define simple move functions to change the value of x and y (frog location)
     public void moveUp() {
         if (y == 0) {
@@ -136,6 +137,11 @@ public class GUI extends Application {
         }
     }
 
+    /**
+     *
+     * @param row
+     * @return
+     */
     public String toString(ArrayList<Unit> row) {
         String rowStr = "";
         Unit o = new Obstacle();
@@ -152,6 +158,10 @@ public class GUI extends Application {
         return rowStr;
     }
 
+    /**
+     *
+     * @return
+     */
     // draw a board using BOARD_WIDTH, BOARD_HEIGHT, x, and y
     public String getFrame() {
         generateTerrain();
@@ -196,6 +206,9 @@ public class GUI extends Application {
         return frame.toString();
     }
 
+    /**
+     *
+     */
     public void run(){
         launch();
     }
