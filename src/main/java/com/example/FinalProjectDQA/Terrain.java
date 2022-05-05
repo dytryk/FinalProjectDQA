@@ -18,7 +18,7 @@ public class Terrain {
     }
 
     /**
-     * this method populates a row with integer Units, filling up to a limited number of obstacles (1)
+     * This method populates a row with integer Units, filling up to a limited number of obstacles (1)
      *  and the rest of the units with open spaces (0)
      * @return arraylist of Units of type int
      */
@@ -45,7 +45,10 @@ public class Terrain {
         return row;
     }
 
-
+    /**
+     * This method populates a row with Spaces Units, so that the frog can spawn into an empty row.
+     * @return an ArrayList row of Spaces
+     */
     public ArrayList<Unit> emptyRow (){
         ArrayList<Unit> tEmpty = new ArrayList<>();
         for (int i = 0; i < 15; i++){
