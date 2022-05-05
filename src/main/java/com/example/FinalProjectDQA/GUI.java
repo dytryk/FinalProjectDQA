@@ -22,14 +22,13 @@ public class GUI extends Application {
     private int x = 7;
     private int y = 8;
 
-    private static ArrayList<String> rowStr = new ArrayList<>();
     private LinkedList<ArrayList<Unit>> terrain = new LinkedList<>();
 
     private boolean isWon = false;
     private boolean isLost = false;
 
     /**
-     *
+     * This method sets of the GUI with a board style and font styles etc.
      * @param primaryStage
      */
     @Override
@@ -84,9 +83,8 @@ public class GUI extends Application {
     }
 
     /**
-     *
+     * The method generates rows of terrain for the board
      */
-    // holds generated lines of terrain for the board to call
     public void generateTerrain() {
         int numRows = 10;
         for (int i = numRows; i > 0; i--) {
@@ -98,15 +96,14 @@ public class GUI extends Application {
                 Terrain t = new Terrain();
                 ArrayList<Unit> temp = t.generateTerr();
                 terrain.add(temp);
-                rowStr.add(temp.toString());
             }
         }
     }
 
     /**
-     *
+     * The next 4 methods control the movement logic,
+     *  deciding when the game is won or lost, in addition to whether a move is valid.
      */
-    // define simple move functions to change the value of x and y (frog location)
     public void moveUp() {
         if (y == 0) {
             isWon = true;
@@ -138,9 +135,9 @@ public class GUI extends Application {
     }
 
     /**
-     *
+     * toString takes an ArrayList of type Unit and converts the row to a String.
      * @param row
-     * @return
+     * @return an ArrayList of type Unit
      */
     public String toString(ArrayList<Unit> row) {
         String rowStr = "";
@@ -159,8 +156,8 @@ public class GUI extends Application {
     }
 
     /**
-     *
-     * @return
+     * This class creates the rows of the Frogger board and sends the winning or losing scripts to the start method.
+     * @return a Stringbuilder that the frame can use to display the board.
      */
     // draw a board using BOARD_WIDTH, BOARD_HEIGHT, x, and y
     public String getFrame() {
@@ -207,7 +204,7 @@ public class GUI extends Application {
     }
 
     /**
-     *
+     * This method runs the Frogger game, so it can be accessed by main.
      */
     public void run(){
         launch();
