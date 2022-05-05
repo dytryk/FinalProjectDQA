@@ -45,19 +45,7 @@ public class Terrain {
         return row;
     }
 
-//    public void setFrog(int xCoord){
-//        row.set(xCoord-1,new Frog());
-//    }
 
-//    /**
-//     * this method converts the numbers into chars for viewable terrain
-//     * @param al an arraylist of Units of type int
-//     * @return an arraylist of Units of type char
-//     */
-//    public ArrayList<Unit> materialize(ArrayList<Unit> al) {
-//        //TODO: finish
-//        return null;
-//    }
     public ArrayList<Unit> emptyRow (){
         ArrayList<Unit> tEmpty = new ArrayList<>();
         for (int i = 0; i < 15; i++){
