@@ -53,24 +53,4 @@ public class Terrain {
         }
         return tEmpty;
     }
-
-    /**
-     * @return a string containing a row of obstacles and spaces
-     */
-    @Override
-    public String toString() {
-        String rowStr = "";
-        Unit o = new Obstacle();
-        Unit s = new Space();
-        for (int i = 0; i < row.size(); i++){
-            if((row.get(i).getClass()).equals(o.getClass())){
-                rowStr = rowStr + "X";
-            } else if ((row.get(i).getClass()).equals(s.getClass())){
-                rowStr = rowStr + " ";
-            } else {
-                rowStr = rowStr + "O";
-            }
-        }
-        return rowStr;
-    }
 }

@@ -1,7 +1,6 @@
 package com.example.FinalProjectDQA;
 
 public abstract class Unit {
-
     /**
      * this class moves and locates unit objects, and defines units as either a frog, space, obstacle
      */
@@ -24,6 +23,6 @@ public abstract class Unit {
         if (this.getClass().equals(Frog.class)){
             return 'O';
         }
-            return ' ';
+        return ' ';
     }
 }

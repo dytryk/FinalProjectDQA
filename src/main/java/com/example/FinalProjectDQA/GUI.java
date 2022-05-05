@@ -8,10 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.input.KeyCode;
-
 import java.util.*;
-
-import java.util.Timer;
 
 public class GUI extends Application {
     // set the size of the board to be displayed
@@ -21,8 +18,8 @@ public class GUI extends Application {
     private int x = 7;
     private int y = 8;
 
-    private static ArrayList<Terrain> rows = new ArrayList<>();
     private static ArrayList<String> rowStr = new ArrayList<>();
+    private LinkedList<ArrayList<Unit>> terrain = new LinkedList<>();
 
     private boolean isWon = false;
     private boolean isLost = false;
@@ -92,8 +89,6 @@ public class GUI extends Application {
     }
 
     // holds generated lines of terrain for the board to call
-    private LinkedList<ArrayList<Unit>> terrain = new LinkedList<>();
-
     public void generateTerrain() {
         int numRows = 10;
         for (int i = numRows; i > 0; i--) {
@@ -109,10 +104,6 @@ public class GUI extends Application {
             }
         }
     }
-
-
-//    17*(y) + 7 + x off by 1
-    //18*(y) + 5 + x off by 6/7
 
     // define simple move functions to change the value of x and y (frog location)
     public void moveUp() {
@@ -145,19 +136,6 @@ public class GUI extends Application {
         }
     }
 
-    static Timer timer = new Timer();
-    static long tick = 0;
-
-    public char[] getNextRow() {
-        ArrayList<Unit> nextRow = terrain.remove();
-        generateTerrain();
-        char[] row = new char[nextRow.size()];
-        for (int i = 0; i < nextRow.size(); i++) {
-            row[i] = nextRow.get(i).toChar();
-        }
-        return row;
-    }
-
     public String toString(ArrayList<Unit> row) {
         String rowStr = "";
         Unit o = new Obstacle();
@@ -174,12 +152,6 @@ public class GUI extends Application {
         return rowStr;
     }
 
-    private String toString2(Terrain t) {
-        String s2 = t.toString();
-        return s2;
-    }
-
-
     // draw a board using BOARD_WIDTH, BOARD_HEIGHT, x, and y
     public String getFrame() {
         generateTerrain();
@@ -194,9 +166,8 @@ public class GUI extends Application {
         }
         if (isLost) {
             frame.delete(0, frame.length());
-            frame.append("you have done it\n");
+            frame.append("The frog fell from a high place\n");
             frame.append("(press esc to close)");
-
             return frame.toString();
         }
 
@@ -224,7 +195,6 @@ public class GUI extends Application {
         frame.append("-".repeat(BOARD_WIDTH));
         return frame.toString();
     }
-
 
     public void run(){
         launch();

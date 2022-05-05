@@ -1,7 +1,6 @@
 package com.example.FinalProjectDQA;
 
-public class Frog extends Unit
-{
+public class Frog extends Unit {
     /**
      * this class converts any attached unit to Frog
      */
