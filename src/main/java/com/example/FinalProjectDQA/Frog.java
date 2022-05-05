@@ -1,16 +1,11 @@
 package com.example.FinalProjectDQA;
-//some methods will be inherited from unit and can be removed. left as place holders for now.
+
 public class Frog extends Unit
 {
     /**
-     * this class moves and locates frog objects.
+     * this class converts any attached unit to Frog
      */
-    private int[] Coordinates;
-    private int xCoord;
-    private int yCoord;
-    private char unitVal;
-    private final int unitNum = 2;
-
+    @Override
    public Unit convert(){
        return new Frog();
    }
