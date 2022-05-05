@@ -26,7 +26,8 @@ public class GUI extends Application {
 
     private boolean isWon = false;
     private boolean isLost = false;
-     /**
+
+    /**
      * Set up the starting scene of your application given the primaryStage (basically the window)
      * https://docs.oracle.com/javase/8/javafx/api/index.html
      *
@@ -224,7 +225,8 @@ public class GUI extends Application {
         return frame.toString();
     }
 
-    public static void main(String[] args) {
+
+    public void run(){
         launch();
     }
 }
